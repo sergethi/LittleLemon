@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,26 @@ STATIC_URL = 'restaurant/static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    # 'DEFAULT_FILTER_BACKENDS': [
+    #     'rest_framework.filters.OrderingFilter',
+    #     'rest_framework.filters.SearchFilter',
+    # ],
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 3,
+    # 'DEFAULT_THROTTLE_CLASSES': [
+    #     'rest_framework.throttling.AnonRateThrottle',
+    #     'rest_framework.throttling.UserRateThrottle'
+    # ],
+    # 'DEFAULT_THROTTLE_RATES': {
+    #     'anon': '2/minute',
+    #     'user': '10/minute'
+    # }
+}
+
+DJOSER={"USER_ID_FIELD":"username"}
