@@ -21,7 +21,7 @@ from restaurant import views
 
 
 router = routers.DefaultRouter()
-router.register(r'tables', views.BookingViewSet)
+router.register(r'tables', views.BookingViewSet, basename="bookings") #gererated routes ('booking-list', 'booking-detail')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),
